@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy to Clipboard Example</title>
+</head>
+<body>
+    <h1>Copy Text to Clipboard</h1>
+
+    <p id="textToCopy">이 텍스트를 복사합니다.</p>
+    <button onclick="copyText()">텍스트 복사</button>
+
+    <script>
+        function copyText() {
+            // 복사할 텍스트 가져오기
+            const text = document.getElementById("textToCopy").textContent;
+
+            // 클립보드에 텍스트 복사
+            navigator.clipboard.writeText(text)
+                .then(() => {
+                    alert("텍스트가 복사되었습니다!");
+                })
+                .catch(err => {
+                    console.error("복사에 실패했습니다.", err);
+                });
+        }
+    </script>
+</body>
+</html>
